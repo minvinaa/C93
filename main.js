@@ -13,21 +13,14 @@ var block_image_object = "";
 
 // Complete the function new_image() to add new image
 function new_image(get_image) {
-	fabric.canvas.fromeURL(get_image, function (Img) {
+	fabric.Image.fromURL(get_image, function (Img) {
 		block_image_object = Img;
 		block_image_object.scaleToWidth(block_image_width);
 
 		block_image_object.scaleToHeight(block_image_height);
-		canvas.add(block_image_object)
-	})
-
-
-
-
-
-
-
-
+		block_image_object.set({ top: block_y, left: block_x });
+		canvas.add(block_image_object);
+	});
 }
 
 window.addEventListener("keydown", my_keydown);
@@ -37,23 +30,22 @@ function my_keydown(e) {
 	console.log(keyPressed);
 	// Use appropriate keycode to add red image
 	if (keyPressed == '66') {
-		block_x = '1040';
-		new_image = blue.png;
-		console.log('B')
+		block_x = 1040;
+		new_image("blue.png");
+		console.log('B');
 
 	}
 	// Use appropriate keycode to add green image
 	if (keyPressed == '82') {
 		block_x = 10;
-		new_image('red.jpg')
-		console.log(R)
-
+		new_image('red.jpg');
+		console.log("R");
 	}
 	// Use appropriate keycode to add yellow image
 	if (keyPressed == '71') {
 		block_x = 310;
 		new_image('green.png');
-		console.log(G);
+		console.log("G");
 
 
 	}
@@ -61,15 +53,15 @@ function my_keydown(e) {
 	if (keyPressed == '89') {
 		block_x = 560;
 		new_image('yellow.png');
-		console.log("Y")
+		console.log("Y");
 
 
 	}
 	// Use appropriate keycode to add blue image
 	if (keyPressed == '80') {
 		block_x = 880;
-		new_image('pink.png')
-		console.log('P')
+		new_image('pink.png');
+		console.log("P");
 
 	}
 
